@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  {% if description %}
+  <meta name="description" content="{{ description }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta name="twitter:description" content="{{ description }}">
+  {% endif %}
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ title }}">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+    <span class="theme-icon-sun">{% include "assets/sun.svg" %}</span>
+    <span class="theme-icon-moon">{% include "assets/moon.svg" %}</span>
+  </button>
+
+  <div class="bio">
+    <div class="bio-main">
+      <img src="/assets/profile.jpg" alt="Dashiell Vallance">
+      <span class="bio-name">Dashiell Vallance</span>
+    </div>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/dashvallance/" aria-label="LinkedIn">
+        {% include "assets/linkedin.svg" %}
+      </a>
+      <a href="https://github.com/dashdotme" aria-label="GitHub">
+        {% include "assets/github.svg" %}
+      </a>
+      <a href="mailto:dash@dashdot.me" aria-label="Email">
+        {% include "assets/email.svg" %}
+      </a>
+    </div>
+  </div>
+
+  {{ content }}
+  <script src="/assets/base.js"></script>
+</body>
+</html>
