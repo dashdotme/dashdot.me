@@ -192,6 +192,7 @@ a:hover {
   height: 64px;
   border-radius: var(--radius-full);
   object-fit: cover;
+  object-position: 50% 60%;
   flex-shrink: 0;
 }
 
@@ -485,6 +486,10 @@ th {
   .bio img {
     width: 28px;
     height: 28px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    object-position: 50% 60%;
+    flex-shrink: 0;
   }
 
   h1 {
