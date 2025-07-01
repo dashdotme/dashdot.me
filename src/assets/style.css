@@ -319,6 +319,21 @@ a:hover {
 }
 
 /* ==========================================
+   FOOTER
+   ========================================== */
+.site-footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.site-footer p {
+  color: var(--color-text-subtle);
+  font-size: 0.9rem;
+  margin: 0;
+}
+/* ==========================================
    CODE & TABLES
    ========================================== */
 pre {
