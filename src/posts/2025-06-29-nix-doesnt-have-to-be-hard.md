@@ -74,7 +74,7 @@ That limited scope is true of any Nix config I've looked at. Some do clever, com
 
 That small scale means *you're free to keep things simple*. You don't need to abstract, or learn every detail - you don't need a textbook to get started. You can learn more practically, by giving it a go, solving problems you actually have, and iterating.
 
-With that said, Nix comes with no shortage of rabbit holes you might fall down along the way. To help you steer clear, I've come up with five principle for starting out, along with a handful of definitions for Nix jargon.
+With that said, Nix comes with no shortage of rabbit holes you might fall down along the way. To help you steer clear, I've come up with five principles for starting out, along with a handful of definitions for Nix jargon.
 
 ## One: Understand what you're building
 
@@ -176,7 +176,7 @@ Those aren't intended as a golden example or a finely polished framework. This i
 Again, to soften the learning curve, here are some approachable definitions for invented terms that come up in Nix discourse.
 
 - **nixpkgs** is the main Nix package repository - it's Nix's equivalent of brew, npm or PyPI
-- **Flakes** arhttps://dashdot.me/e an entrypoint file which comes with a lock on the core dependencies. *Use them*.
+- **Flakes** are an entrypoint file which comes with a lock on the core dependencies. *Use them*.
 - **Home Manager** is a completely optional separate scoping for user-level dependencies, which can speed up rebuilds.
 - The **Nix Store** holds all your downloaded packages, giving each version of each package a unique hash.
 - **Generations** are system snapshots - a set of links to packages in your Nix Store. You can choose your generation (ie. your system version) during boot.
