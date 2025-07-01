@@ -74,7 +74,7 @@ That limited scope is true of any Nix config I've looked at. Some do clever, com
 
 That small scale means *you're free to keep things simple*. You don't need to abstract, or learn every detail - you don't need a textbook to get started. You can learn more practically, by giving it a go, solving problems you actually have, and iterating.
 
-With that said, Nix comes with no shortage of rabbit holes you might fall down along the way. To help you steer clear, I've come up with five principle for starting out, along with a handful of definitions for the Nix jargon.
+With that said, Nix comes with no shortage of rabbit holes you might fall down along the way. To help you steer clear, I've come up with five principle for starting out, along with a handful of definitions for Nix jargon.
 
 ## One: Understand what you're building
 
@@ -94,7 +94,7 @@ As an example - Nix doesn't manage my dotfiles, though I use the (very optional)
 
 Instead, I use a tool called chezmoi. It does exactly one thing - manage my dotfiles - and it does it well, in a way that's familiar - regardless of my OS.
 
-Trying to use Nix for this purpose instead unveiled a heap of complexity. Worse, it was **locking me in**, without adding value. As far as I can tell, it's just one of those things you don't need to do.
+Trying to use Nix for this purpose instead unveiled a heap of complexity. Worse, it was **locking me in**, without adding value. As far as I can tell, it's one of those things you don't need to do.
 
 ## Three: Nix's abstractions leak
 
@@ -175,11 +175,14 @@ Those aren't intended as a golden example or a finely polished framework. This i
 ## Nix Glossary
 Again, to soften the learning curve, here are some approachable definitions for invented terms that come up in Nix discourse.
 
-- **Flakes** are an entrypoint file which comes with a lock on the core dependencies. *Use them*.
+- **nixpkgs** is the main Nix package repository - it's Nix's equivalent of brew, npm or PyPI
+- **Flakes** arhttps://dashdot.me/e an entrypoint file which comes with a lock on the core dependencies. *Use them*.
 - **Home Manager** is a completely optional separate scoping for user-level dependencies, which can speed up rebuilds.
 - The **Nix Store** holds all your downloaded packages, giving each version of each package a unique hash.
-- **Generations** are system snapshots - a set of links to packages in your Nix Store
-- **Rebuilds** create a new generation for that configuration. You can choose your generation (ie. your system version) during boot.
+- **Generations** are system snapshots - a set of links to packages in your Nix Store. You can choose your generation (ie. your system version) during boot.
+- **Rebuilds** create a new generation for that configuration.
+- **Switching** changes your generation on the spot.
+- **Dev Shells** are temporary, isolated development environments. They make specific packages available in your shell without installing them system-wide.
 - **Packages** are build recipes. They boil down to a download, some tool dependencies, and a bash build script.
 - **Modules** are just files - they have inputs (from other nix files) and outputs.
 - **Overlays** modify the package set (like nixpkgs). They let you customize existing packages or add new ones to the available package collection.
