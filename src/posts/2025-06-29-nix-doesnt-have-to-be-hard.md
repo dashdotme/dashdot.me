@@ -70,16 +70,16 @@ And these are my code statistics for those files:
 
 500 lines of Nix configuration, 150 lines of documentation and whitespace. That's a pretty tiny project, yet it has all the important parts of my OS, and most of it is reused across 3 machines.
 
-<figure style="flex: 1; margin: 0;">
-  <img src="/assets/2025-06-29-nix-doesnt-have-to-be-hard/comfy_mode.webp" alt="Comfy Mode" style="width: 100%; height: auto;">
-  <figcaption>My PC in comfy mode</figcaption>
-</figure>
-
 That limited scope is true of any Nix config I've looked at. Some do clever, complex things; some manage the complication of many hosts; some structure things to be as modular as possible - but the **system is never large**.
 
 That small scale means *you're free to keep things simple*. You don't need to abstract, or learn every detail - you don't need a textbook to get started. You can learn more practically, by giving it a go, solving problems you actually have, and iterating.
 
 With that said, Nix comes with no shortage of rabbit holes you might fall down along the way. To help you steer clear, I've come up with five principles for starting out, along with a handful of definitions for Nix jargon.
+
+<figure style="flex: 1; margin: 0;">
+  <img src="/assets/2025-06-29-nix-doesnt-have-to-be-hard/comfy_mode.webp" alt="Comfy Mode" style="width: 100%; height: auto;">
+  <figcaption>My PC in comfy mode</figcaption>
+</figure>
 
 ## One: Understand what you're building
 
