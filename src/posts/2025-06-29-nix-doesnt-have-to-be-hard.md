@@ -1,7 +1,7 @@
 ---
 title: "Nix Doesn't Have To Be Hard"
 date: 2025-06-29
-description: "Nix has a reputation for complexity, but you can get a working, customized system with just 500 lines of configuration. Here's how to avoid the rabbit holes and focus on what matters."
+description: "Nix doesn't have to be hard. Here are five principles to simplify your learning curve."
 tags:
   - nix
   - linux
@@ -70,6 +70,11 @@ And these are my code statistics for those files:
 
 500 lines of Nix configuration, 150 lines of documentation and whitespace. That's a pretty tiny project, yet it has all the important parts of my OS, and most of it is reused across 3 machines.
 
+<figure style="flex: 1; margin: 0;">
+  <img src="/assets/2025-06-29-nix-doesnt-have-to-be-hard/comfy_mode.webp" alt="Comfy Mode" style="width: 100%; height: auto;">
+  <figcaption>My PC in comfy mode</figcaption>
+</figure>
+
 That limited scope is true of any Nix config I've looked at. Some do clever, complex things; some manage the complication of many hosts; some structure things to be as modular as possible - but the **system is never large**.
 
 That small scale means *you're free to keep things simple*. You don't need to abstract, or learn every detail - you don't need a textbook to get started. You can learn more practically, by giving it a go, solving problems you actually have, and iterating.
@@ -90,11 +95,14 @@ Nobody is going to stop you from building a complex system, but the question you
 
 You especially don't need to understand every Nix-ism. Nix comes with a wonderfully engaged community who have made difficult things work and documented their abstractions in detail. **Their problems and goals aren't yours.** In many cases, **it's simpler to avoid the problems they're trying to solve**.
 
-As an example - Nix doesn't manage my dotfiles, though I use the (very optional) *home manager* to speed up my user config updates.
-
-Instead, I use a tool called chezmoi. It does exactly one thing - manage my dotfiles - and it does it well, in a way that's familiar - regardless of my OS.
+As an example - Nix doesn't manage my dotfiles. Instead, I use a tool called chezmoi. It does exactly one thing - manage my dotfiles - and it does it well, in a way that's familiar - regardless of my OS.
 
 Trying to use Nix for this purpose instead unveiled a heap of complexity. Worse, it was **locking me in**, without adding value. As far as I can tell, it's one of those things you don't need to do.
+
+<figure style="flex: 1; margin: 0;">
+    <img src="/assets/2025-06-29-nix-doesnt-have-to-be-hard/productive_mode.webp" alt="Productive Mode" style="width: 100%; height: auto">
+    <figcaption>My PC in productive mode</figcaption>
+</figure>
 
 ## Three: Nix's abstractions leak
 
@@ -155,6 +163,12 @@ With that, typical binaries should work. Easy enough if you know about it, but i
 A heap of clever people have adopted Nix, and you can smooth out many rough edges by adapting their configurations. That's one of Nix's key advantages - it's very easy to download your computer, or to adapt someone else's.
 
 Similarly, LLM's can help you do or understand particular things, if you're judicious. They will repeat complex anti-patterns and sometimes get things wrong, so be cautious, but they're a great help for discovery and comprehension.
+
+<figure style="flex: 1; margin: 0;">
+  <img src="/assets/2025-06-29-nix-doesnt-have-to-be-hard/llm_chat.webp" alt="LLM example question" style="width: 100%; height: auto;">
+  <figcaption>A fine NixOS starting point from Claude</figcaption>
+</figure>
+
 
 You'll always learn more by building your own things, but learning from others helps you focus on what's valuable to know, keeping you on the happy path. Try to blend both.
 

@@ -1,0 +1,40 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -i bash -p libwebp
+
+# webpify - Convert images to WebP format
+# Usage: ./webpify [directory] [quality]
+
+set -euo pipefail
+
+# Defaults
+DIR="${1:-.}"
+QUALITY="${2:-80}"
+
+echo "Converting images in $DIR to WebP (quality: $QUALITY)..."
+
+find "$DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | while read -r file; do
+    # Strip extension
+    basename="${file%.*}"
+    webp_file="${basename}.webp"
+
+    if [[ -f "$webp_file" && "$webp_file" -nt "$file" ]]; then
+        echo "Skipping $file (WebP already exists and is newer)"
+        continue
+    fi
+
+    echo "Converting: $file"
+
+    original_size=$(stat -c%s "$file")
+
+    # Convert to WebP
+    if cwebp -q "$QUALITY" "$file" -o "$webp_file"; then
+        # Get new size and calculate savings
+        new_size=$(stat -c%s "$webp_file")
+        savings=$(( (original_size - new_size) * 100 / original_size ))
+        echo "  ✓ ${file##*/} → ${webp_file##*/} (${savings}% smaller)"
+    else
+        echo "  ✗ Failed to convert $file"
+    fi
+done
+
+echo "Done!"
