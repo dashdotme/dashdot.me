@@ -335,6 +335,17 @@ figcaption {
   color: var(--color-text-subtle);
   font-style: italic;
 }
+
+.note {
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-link);
+  padding: var(--space-sm);
+  margin: var(--space-md) 0;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--color-text-subtle);
+}
+
 /* ==========================================
    FOOTER
    ========================================== */

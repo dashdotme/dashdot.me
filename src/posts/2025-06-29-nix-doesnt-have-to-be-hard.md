@@ -124,15 +124,19 @@ Nix makes this maintenance easy. The bug lives in my centralized configuration, 
 
 I might still cause the bug, and maybe it will still be bad - but I can always rollback, read my code, and remove the problem. That's a  small but nice win which comes from Nix's declarative approach, along with their *build generations*.
 
-## Four: Nix isn't flawless
+## Four: NixOS isn't flawless
 
-This is a key one to understand - Nix makes choices that, out of the box, break things. Productive use requires a handful of workarounds; initial installation is comparatively hard, requiring you to format your own partitions; Nix-specific documentation can be rough, and the language is complicated. But, once you're up and running, it works better than anything else.
+This is a key one to understand - NixOS makes choices that, out of the box, break things. Productive use requires a handful of workarounds; initial installation is comparatively hard, requiring you to format your own partitions; Nix-specific documentation can be rough, and the language is complicated. But, once you're up and running, it works better than anything else.
 
 One big issue is that it's easy to go wrong before you're on this happy path. The rabbit holes go deep. The tech debt is plentiful.
 
-As an example, let's look at **dynamic linking**. It's a fundamental OS concept, used to save resources, which doesn't *just work* on Nix. You'll see it mentioned at the heart of quite a few **'I Quit Nix!'** stories online.
+As an example, let's look at **dynamic linking**. It's a fundamental OS concept, used to save resources, which doesn't *just work* on NixOS. You'll see it mentioned at the heart of quite a few **'I Quit NixOS!'** stories online.
 
-In reality a simple solution exists, provided at the end of the explanation below. But let's try to understand why people say *Nix is hard*, by focusing in on this one problem.
+In reality a simple solution exists, provided at the end of the explanation below. But let's try to understand why people say *NixOS is hard*, by focusing in on this one problem.
+
+{% note %}
+***Edit 2/7/25**: Corrected "Nix" to "NixOS" in this section. [Thanks to r/richardgoulter for the correction.](https://www.reddit.com/r/NixOS/comments/1lply44/comment/n0x04pa/)*
+{% endnote %}
 
 ---
 
