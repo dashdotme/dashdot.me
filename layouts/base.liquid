@@ -13,6 +13,11 @@
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{ title }}">
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed" href="/feed.atom">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicons/site.webmanifest">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
@@ -27,14 +32,17 @@
       <span class="bio-name">Dashiell Vallance</span>
     </div>
     <div class="contact-links">
-      <a href="https://www.linkedin.com/in/dashvallance/" aria-label="LinkedIn">
-        {% include "assets/linkedin.svg" %}
+      <a href="/feed.atom" aria-label="RSS Feed">
+        {% include "assets/rss.svg" %}
+      </a>
+      <a href="mailto:dash@dashdot.me" aria-label="Email">
+        {% include "assets/email.svg" %}
       </a>
       <a href="https://github.com/dashdotme" aria-label="GitHub">
         {% include "assets/github.svg" %}
       </a>
-      <a href="mailto:dash@dashdot.me" aria-label="Email">
-        {% include "assets/email.svg" %}
+      <a href="https://www.linkedin.com/in/dashvallance/" aria-label="LinkedIn">
+        {% include "assets/linkedin.svg" %}
       </a>
     </div>
   </div>
@@ -42,9 +50,11 @@
   {{ content }}
 
   <footer class="site-footer">
-    <p>&copy; 2025 Dashiell Vallance</p>
+    <p>© 2025 Dashiell Vallance.</p>
+    <p>All writing is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0.</a> Please share it freely.</p>
+    <p>Site powered by <a href="https://www.11ty.dev/">11ty</a>. <a href="https://github.com/dashdotme/dashdotme">Source code</a> available under MIT.</a></p>
   </footer>
   <script src="/assets/base.js"></script>
 
-</body>
+ </body>
 </html>

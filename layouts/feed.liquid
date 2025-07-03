@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Dashiell Vallance</title>
+  <link href="https://dashdot.me/feed.atom" rel="self"/>
+  <link href="https://dashdot.me"/>
+  <updated>{{ collections.posts.last.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+  <id>https://dashdot.me/</id>
+  <author>
+    <name>Dashiell Vallance</name>
+    <email>dash@dashdot.me</email>
+  </author>
+
+  {% for post in collections.posts reversed limit: 10 %}
+  <entry>
+    <title>{{ post.data.title | xml_escape }}</title>
+    <link href="https://dashdot.me{{ post.url }}"/>
+    <updated>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+    <id>https://dashdot.me{{ post.url }}</id>
+    <content type="html"><![CDATA[{{ post.templateContent }}]]></content>
+  </entry>
+  {% endfor %}
+</feed>
