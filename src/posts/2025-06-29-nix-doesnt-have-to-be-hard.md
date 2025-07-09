@@ -77,7 +77,7 @@ That small scale means *you're free to keep things simple*. You don't need to ab
 With that said, Nix comes with no shortage of rabbit holes you might fall down along the way. To help you steer clear, I've come up with five principles for starting out, along with a handful of definitions for Nix jargon.
 
 <figure style="flex: 1; margin: 0;">
-  <img src="/assets/2025-06-29-nix-doesnt-have-to-be-hard/comfy_mode.webp" alt="Comfy Mode" style="width: 100%; height: auto;">
+  <img src="/2025-06-29-nix-doesnt-have-to-be-hard/comfy_mode.webp" alt="Comfy Mode" style="width: 100%; height: auto;">
   <figcaption>My PC in comfy mode</figcaption>
 </figure>
 
@@ -100,7 +100,7 @@ As an example - Nix doesn't manage my dotfiles. Instead, I use a tool called che
 Trying to use Nix for this purpose instead unveiled a heap of complexity. Worse, it was **locking me in**, without adding value. As far as I can tell, it's one of those things you don't need to do.
 
 <figure style="flex: 1; margin: 0;">
-    <img src="/assets/2025-06-29-nix-doesnt-have-to-be-hard/productive_mode.webp" alt="Productive Mode" style="width: 100%; height: auto">
+    <img src="/2025-06-29-nix-doesnt-have-to-be-hard/productive_mode.webp" alt="Productive Mode" style="width: 100%; height: auto">
     <figcaption>My PC in productive mode</figcaption>
 </figure>
 
@@ -169,7 +169,7 @@ A heap of clever people have adopted Nix, and you can smooth out many rough edge
 Similarly, LLM's can help you do or understand particular things, if you're judicious. They will repeat complex anti-patterns and sometimes get things wrong, so be cautious, but they're a great help for discovery and comprehension.
 
 <figure style="flex: 1; margin: 0;">
-  <img src="/assets/2025-06-29-nix-doesnt-have-to-be-hard/llm_chat.webp" alt="LLM example question" style="width: 100%; height: auto;">
+  <img src="/2025-06-29-nix-doesnt-have-to-be-hard/llm_chat.webp" alt="LLM example question" style="width: 100%; height: auto;">
   <figcaption>A fine NixOS starting point from Claude</figcaption>
 </figure>
 
