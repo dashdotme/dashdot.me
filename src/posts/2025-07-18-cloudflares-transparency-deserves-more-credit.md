@@ -31,6 +31,6 @@ In spite of that, cloud margins are extreme, while SLA-breach payments are caref
 
 So Cloudflare's post is the best case handling of this kind of problem - a many-billion dollar business admitting their core systems have brittle components. They can only replace them over time.
 
-With that in mind, Cloudflare has my trust - not because I think these problems will be solved tomorrow, but because experience and sources like [thousandeyes](https://www.thousandeyes.com/resources/internet-outages-timeline) have convinced me that every cloud provider has these problems. They're hard to solve.
+With that in mind, Cloudflare has my trust - not because I think these problems will be solved tomorrow, but because [everyone has them](https://www.thousandeyes.com/resources/internet-outages-timeline). They're easy to create, and hard to solve.
 
-And while I understand the pragmatism of keeping quiet - more transparency gives people more to remember - I'd wager that these companies which speak up will fix the problems, and soon. Their business depends on it.
+And while I understand the pragmatism of keeping quiet - more transparency gives people more to remember - I'd wager that it's the companies which speak up that will fix things, and quickly. Their business now depends on it.
