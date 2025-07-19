@@ -297,7 +297,7 @@ a:hover {
 }
 
 .theme-toggle {
-  position: fixed;
+  position: absolute;
   top: var(--space-lg);
   right: var(--space-lg);
   background: var(--color-surface);
