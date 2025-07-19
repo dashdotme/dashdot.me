@@ -2,6 +2,7 @@
 title: "Nix Doesn't Have To Be Hard"
 date: 2025-06-29
 description: "Nix doesn't have to be hard. Here are five principles to simplify your learning curve."
+series: "NixOS"
 tags:
   - nix
   - linux
