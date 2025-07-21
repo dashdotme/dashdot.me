@@ -287,6 +287,9 @@ a:hover {
 }
 
 .single-post h1 {
+  min-height: 100px; /* cap at 2-line titles, for consistent layouts */
+  display: flex;
+  align-items: center;
   margin-bottom: var(--space-xs);
 }
 
@@ -344,6 +347,10 @@ figcaption {
   border-radius: var(--radius-md);
   font-size: 0.9rem;
   color: var(--color-text-subtle);
+}
+
+.note p {
+  margin-bottom: 0;
 }
 
 .series-index {
