@@ -32,7 +32,7 @@ To help with the onboarding problem, I thought I'd explain why Nix and NixOS are
 
 We'll start with fundamentals - some simple definitions. Then, we'll explore the unique choices that make NixOS increasingly appealing (and my pick for the foundation of a future consumer-grade Linux distribution).
 
-{% note %}
+{% note "short" %}
 
 I've wrapped the basics in dividers, so you can skip ahead if you know your stuff.
 
