@@ -22,6 +22,13 @@ export default (eleventyConfig) => {
     return `<sup><a href="#fn${num}" id="fnref${num}">${num}</a></sup>`;
   });
 
+  eleventyConfig.addPairedLiquidShortcode("footnotes", (content) => {
+    return `<div class="footnotes">
+      <h3>Footnotes</h3>
+      ${content}
+    </div>`;
+  });
+
   eleventyConfig.addPairedLiquidShortcode("footnote", (content, num, title) => {
     const titleText = title ? ` ${title}` : '';
     return `<div class="footnote" id="fn${num}">
