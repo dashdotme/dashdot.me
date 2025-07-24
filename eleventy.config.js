@@ -13,8 +13,9 @@ export default (eleventyConfig) => {
   });
 
   const md = new markdownIt();
-  eleventyConfig.addPairedLiquidShortcode("note", (content) => {
-    return `<div class="note">${md.render(content.trim())}</div>`;
+  eleventyConfig.addPairedLiquidShortcode("note", (content, type) => {
+    const className = type ? `note ${type}` : 'note';
+    return `<div class="${className}">${md.render(content.trim())}</div>`;
   });
 
   // footnotes
