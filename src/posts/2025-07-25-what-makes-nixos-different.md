@@ -1,5 +1,5 @@
 ---
-title: "What Makes NixOS Different (And Why It's Worth Learning)"
+title: "What Makes NixOS Different (And Why It's Worth It)"
 date: 2025-07-25
 description: "NixOS is unique - and once you're onboard, it's better. From rollbacks to reproducibility and declarative configuration, discover why it's worth the effort."
 series: "NixOS"
