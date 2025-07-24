@@ -218,7 +218,7 @@ There's no arguing about the complexity, though. So maybe there's room to improv
 
 I'll tell you a secret though: wherever things go next, Nix users will be happy. They've already climbed the mountain. They're now quietly enjoying a better desktop experience, searching for the next clever idea. They've got a good view.
 
----
+{% footnotes %}
 
 {% footnote 1, "Security Challenges" %}
 
@@ -233,3 +233,5 @@ Add in the volunteer-driven nature of the Nix community, and the sheer size of t
 If you're looking for distributions with solutions to this problem, consider RHEL or Ubuntu. Otherwise, bump your flake locks regularly, to reduce the risk of being on vulnerable versions.
 
 {% endfootnote 1 %}
+
+{% endfootnotes %}
