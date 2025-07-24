@@ -129,7 +129,9 @@ Note this all comes with one big downside - Nix can generate some *pretty crypti
 </figure>
 
 ### 4. Effortless Development Environments
-One of Nix's most powerful features works across all platforms, not just NixOS. It comes in two flavours: `nix shell` and `nix develop`. `nix shell` lets you temporarily install packages - great for one-offs.
+One of Nix's most powerful features works across all platforms, not just NixOS. It comes in two flavours: `nix shell` and `nix develop`.
+
+`nix shell` lets you temporarily install packages - great for one-offs or quickly trying things out.
 
 `nix develop` loads an entirely isolated environment, with exactly the tools and dependencies you need. It's verbose, but a minimal example looks like:
 ```nix
@@ -151,7 +153,7 @@ One of Nix's most powerful features works across all platforms, not just NixOS. 
 
 With this in your project root, you can run `nix develop` anywhere in your project to get a shell with Go, linting and Node v20. When you're done, it just disappears.
 
-While the underlying machinery is complex, the user experience here is simply brilliant. No lengthy setup docs, no conflicts between projects, no overhead from a local Docker setup. Again, *it just works*.
+While the underlying machinery is complex, the user experience here is simply brilliant. No lengthy setup docs, no conflicts between projects, no overhead from a local Docker setup. *It just works*.
 
 <figure style="flex: 1; margin: 0;"> <img src="/2025-07-25-what-makes-nixos-different/different_shell.png" alt="A different shell depicted in a different (ephemeral) shell." style="width: 100%; height: auto;">
   <figcaption>A different shell in a different shell. Art packages temporarily installed with nix shell.</figcaption>
@@ -166,8 +168,6 @@ While this productivity is partly driven by challenges with using non-Nix packag
 
 {% note %}
 **Example**: Looking up and using a package. I've aliased the lookup to `wat`.
-
-There are two underlying approaches - `nix-locate` or `nix search`. I'm using `nix-locate`.
 
 ```
 /home/dash/projects/dashdotme [dash@xps] [21:30] [0]
@@ -192,6 +192,8 @@ Available commands:
 ...
 <rest omitted for brevity>
 ```
+
+There are two underlying approaches here - `nix-locate` or `nix search`. I'm using `nix-locate`.
 
 {% endnote %}
 
