@@ -393,6 +393,40 @@ figcaption {
   color: var(--color-text);
 }
 
+.footnote {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-sm) var(--space-md);
+  margin: var(--space-sm) 0;
+  font-size: 0.9rem;
+  color: var(--color-text-subtle);
+}
+
+.footnote p {
+  margin: var(--space-xs);
+}
+
+.footnote-backlink {
+  margin-left: var(--space-xs);
+  text-decoration: none;
+  color: var(--color-link);
+  font-weight: bold;
+}
+
+.footnote-backlink:hover {
+  text-decoration: underline;
+}
+
+sup a {
+  color: var(--color-link);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+sup a:hover {
+  text-decoration: underline;
+}
+
 /* ==========================================
    FOOTER
    ========================================== */

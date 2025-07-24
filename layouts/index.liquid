@@ -11,7 +11,7 @@ layout: base.liquid
     <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
     <h2 class="post-title">{{ post.data.title }}</h2>
     <div class="post-excerpt">
-      {% assign words = post.templateContent | strip_html | split: " " %}
+      {% assign words = post.templateContent | removeHeadings | strip_html | split: " " %}
       {% if words.size > 50 %}
         {{ words | slice: 0, 50 | join: " " }}...
       {% else %}
