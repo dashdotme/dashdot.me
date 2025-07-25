@@ -197,7 +197,13 @@ There are two underlying approaches here - `nix-locate` or `nix search`. I'm usi
 
 Critically, you're free to try the latest and greatest on Linux, without any worry of breaking your machine.
 
-It's not all sunshine and rainbows, though: Nix's approach can create security maintenance challenges{% fnref 1 %}. These problems get harder because `nixpkgs` is so big.
+It's not all sunshine and rainbows, though: Nix's approach can create security maintenance challenges{% fnref 1 %}. These problems are more challenging given the size of `nixpkgs`.
+
+{% note %}
+
+Edit: clarified wording here. The problem is covered in the footnote.
+
+{% endnote %}
 
 ### 6. Learning, and Network Effects
 There's a simple way to frame this: the people that deal with complexity for fun are unusually clever. It's very easy to learn from them.
