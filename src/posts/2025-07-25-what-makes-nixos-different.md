@@ -15,13 +15,11 @@ permalink: /what-makes-nixos-different/
 ## The Story That Led Me To NixOS
 Like many kiwis at the time, my partner and I were preparing for a shift overseas. She was finishing her master's and had just accepted a job offer; I was preparing for certifications, juggling work and the move admin, about to start my own job hunt. As I was studying, a notification popped up; for some reason, that seemed the perfect time to try updating Ubuntu on my home machine.
 
-I knew it was dangerous, but I didn't really get *why*. I thought a few packages might break, and my third-party repositories would stop working. Instead, my screen filled with errors, and the install was bricked. Either OpenSSL hadn't installed correctly, or some part of the system boot was depending on an older version. Either way, it wasn't a mystery I had time for.
+I knew it was dangerous; I thought a few packages might break, and my third-party repositories would stop working. Instead, my screen filled with errors, and the install was bricked. Either OpenSSL hadn't installed correctly, or some part of the system boot was depending on an older version. Whatever the cause, it was a bigger mystery than I had time for.
 
 My fallback environments were an old Windows install and a laptop with hardware issues. The first freeze during an exam I dealt with; by the second, I was on edge. Cue a few nervous digital interviews - I was keen to keep them short.
 
-In the end, it all worked out. And when I sat down to fix my home desktop a few months later, reinstalling Ubuntu was an easy enough fix. I hadn't lost anything - the updated OS ran better.
-
-But the experience had hammered in the lesson: Linux can always break. I wanted something better. In time, that led me to NixOS.
+In the end, it all worked out. And when I sat down to fix my home desktop a few months later, reinstalling Ubuntu was an easy enough fix. That just wasn't how I wanted to spend my time regularly - I wanted to freely tinker, and NixOS was my answer.
 
 ---
 
@@ -197,10 +195,9 @@ There are two underlying approaches here - `nix-locate` or `nix search`. I'm usi
 
 {% endnote %}
 
-Critically, you're free to try the latest and greatest on Linux, without any worries of breaking your machine.
+Critically, you're free to try the latest and greatest on Linux, without any worry of breaking your machine.
 
-
-It's not all sunshine and rainbows, though: Nix's approach can create security maintenance challenges{% fnref 1 %}, particularly around tracking vulnerabilities across its massive package ecosystem.
+It's not all sunshine and rainbows, though: Nix's approach can create security maintenance challenges{% fnref 1 %}. These problems get harder because `nixpkgs` is so big.
 
 ### 6. Learning, and Network Effects
 There's a simple way to frame this: the people that deal with complexity for fun are unusually clever. It's very easy to learn from them.
