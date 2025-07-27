@@ -97,6 +97,21 @@
 }
 
 /* ==========================================
+   SYNTAX HIGHLIGHTING - SHIKI THEME SWITCHING
+   ========================================== */
+
+/* Only override for dark mode - let light mode use Shiki's default inline styles */
+[data-color-scheme="dark"] .shiki,
+[data-color-scheme="dark"] .shiki.shiki-themes {
+  background-color: var(--shiki-dark-bg) !important;
+  color: var(--shiki-dark) !important;
+}
+
+[data-color-scheme="dark"] .shiki span {
+  color: var(--shiki-dark) !important;
+}
+
+/* ==========================================
    BASE STYLES
    ========================================== */
 *,
