@@ -62,7 +62,7 @@ By making different default choices and orchestrating their package managers in 
 
 The first rule Nix changes is how packages are installed. Linux distributions generally follow [the FHS, a Unix standard for the filesystem layout](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard). Nix breaks this convention, downloading all packages to the **Nix Store** - a read-only location in your file system, where every built package is **isolated** and given a **unique hash**. This hash, calculated based on the *build inputs* (termed [*derivations*](https://nix.dev/manual/nix/2.28/store/derivation/)), allows **multiple versions of the same package** to be stored and referenced. The result looks something like:
 
-```nix
+```bash
 /nix/store/c8jxsih8yy2rnncdmx2hyraizf689nvp-nodejs-22.14.0
 /nix/store/4qx33yfkway214mhlgq3ph4gnfdp32ah-nodejs-20.19.2
 ```
@@ -167,7 +167,7 @@ While this productivity is partly driven by challenges with using non-Nix packag
 {% note %}
 **Example**: Looking up and using a package. I've aliased the lookup to `wat`.
 
-```
+```bash
 /home/dash/projects/dashdotme [dash@xps] [21:30] [0]
 > wat uv
 'uv' is already installed at: /etc/profiles/per-user/dash/bin/uv
@@ -199,9 +199,9 @@ Critically, you're free to try the latest and greatest on Linux, without any wor
 
 It's not all sunshine and rainbows, though: Nix's approach can create security maintenance challenges{% fnref 1 %}. These problems are more challenging given the size of `nixpkgs`.
 
-{% note %}
+{% note "short" %}
 
-Edit: clarified wording here. The problem is covered in the footnote.
+**Edit 25/7/25:** clarified wording.
 
 {% endnote %}
 
