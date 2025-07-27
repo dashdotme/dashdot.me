@@ -99,16 +99,18 @@
 /* ==========================================
    SYNTAX HIGHLIGHTING - SHIKI THEME SWITCHING
    ========================================== */
-
-/* Only override for dark mode - let light mode use Shiki's default inline styles */
 [data-color-scheme="dark"] .shiki,
-[data-color-scheme="dark"] .shiki.shiki-themes {
+[data-color-scheme="dark"] .shiki span {
   background-color: var(--shiki-dark-bg) !important;
   color: var(--shiki-dark) !important;
 }
 
-[data-color-scheme="dark"] .shiki span {
-  color: var(--shiki-dark) !important;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-scheme="light"]) .shiki,
+  :root:not([data-color-scheme="light"]) .shiki span {
+    background-color: var(--shiki-dark-bg) !important;
+    color: var(--shiki-dark) !important;
+  }
 }
 
 /* ==========================================
