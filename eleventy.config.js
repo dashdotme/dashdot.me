@@ -1,7 +1,31 @@
 import markdownIt from "markdown-it";
+import { fromHighlighter } from "@shikijs/markdown-it";
+import { createHighlighter } from "shiki";
 
-export default (eleventyConfig) => {
+export default async (eleventyConfig) => {
+  // treat src/assets as root for management of favicons etc.
   eleventyConfig.addPassthroughCopy({"src/assets": "."});
+
+  // setup syntax highlighting with Shiki
+  const highlighter = await createHighlighter({
+    themes: ["catppuccin-mocha", "catppuccin-latte"],
+    langs: ["nix", "bash", "python", "rust", "javascript", "typescript", "html", "css", "json", "markdown"],
+  });
+
+  const md = new markdownIt({
+    html: true,
+    linkify: true,
+    typographer: true
+  }).use(
+    fromHighlighter(highlighter, {
+    themes: {
+      light: "catppuccin-latte",
+      dark: "catppuccin-mocha"
+      }
+    })
+  );
+
+  eleventyConfig.setLibrary("md", md);
 
   // index
   eleventyConfig.addCollection("posts", (collectionApi) => {
@@ -12,7 +36,7 @@ export default (eleventyConfig) => {
     return content.replace(/<h[1-6][^>]*>.*?<\/h[1-6]>/gi, '');
   });
 
-  const md = new markdownIt();
+  // notes
   eleventyConfig.addPairedLiquidShortcode("note", (content, type) => {
     const className = type ? `note ${type}` : 'note';
     return `<div class="${className}">${md.render(content.trim())}</div>`;
