@@ -85,7 +85,7 @@ This means that all configuration is **centralized and explicit**. System files 
 ## What You Get
 
 ### 1. An Unbreakable, Reusable System
-**NixOS** allows you to choose your generation via the bootloader during boot. If anything goes wrong, you can **always load your last working version**.This unbreakable nature, combined with the **reproducibility** of Nix means you can literally download your PC, with minimal tweaking required for different machines.
+**NixOS** allows you to choose your generation via the bootloader during boot. If anything goes wrong, you can **always load your last working version**. This unbreakable nature, combined with the reproducibility of Nix means you can literally download your PC, with minimal tweaking required for different machines.
 
 This is what sold me. By converting all my machines to NixOS, I traded time for **peace of mind** and a **portable environment**. My laptop *feels the same* as my desktop; time spent tinkering on one carries over to the other. I'm *defining my flavour of Linux*, not just configuring a host.
 
@@ -94,7 +94,7 @@ While you may still need to tweak for different hardware, the core desktop exper
 You can also easily try out others' configurations, adapt their ideas, or even build directly from someone else's GitHub repo. It's a great way to learn.
 
 ### 2. An Escape from Dependency Hell
-Nix's versioned dependencies are the solution to a common problem with software: sometimes two packages depend on **different versions** of the same thing. This can cause things to break. [I covered the implementation details for this in a previous post](https://dashdot.me/nix-doesnt-have-to-be-hard), but the key point is that **Nix takes care of this for you**. That's part of the *reproducibility* promise.
+Nix's versioned dependencies are the solution to a common problem with software: sometimes two packages depend on **different versions** of the same dependency. This can cause software to break. [I covered the implementation details for this in a previous post](https://dashdot.me/nix-doesnt-have-to-be-hard), but the key point is that **Nix takes care of this for you**. That's part of the reproducibility promise.
 
 {% note %}
 
@@ -115,7 +115,9 @@ This point is built on a double-edged sword: NixOS requires writing your configu
 
 Like other declarative languages, Nix is great at expressing high-level decisions in a concise, readable way. The downside is that more complex flows can get messy.
 
-The key gain from declarative code is that, however you approach it, the core of your system will be explicit. By keeping things compact and centralized, you also get something that is easy to maintain. However you approach it, Nix separates *your work* from *OS boilerplate*; this means you can quickly see exactly what you (or someone else) did to cause an issue.
+Declarative code does something important: it makes your system explicit. That means it's easy to understand and search. By keeping things compact and centralized, you also get something that is easy to maintain.
+
+However you approach it, Nix separates *your work* from *OS boilerplate*; this means you can quickly see exactly what you (or someone else) did to cause an issue. Over time, this helps with system stability. [As someone else eloquently put it, you're eliminating system *entropy*](https://iampavel.dev/blog/why-i-switched-to-nixos). This keeps your machines working well for longer.
 
 With modern NixOS, using *flakes* as lock files, you can also be sure that version control is in use, as untracked files are ignored by the flake. This *should* simplify debugging, even if you're working across machines.
 
@@ -165,6 +167,7 @@ This streamlined development workflow is well supported by [Nix's package librar
 While this productivity is partly driven by challenges with using non-Nix packages on NixOS, the core user experience is great. Nearly everything you can think of is available; you can even search for packages by command.
 
 {% note %}
+
 **Example**: Looking up and using a package. I've aliased the lookup to `wat`.
 
 ```bash
@@ -191,19 +194,13 @@ Available commands:
 <rest omitted for brevity>
 ```
 
-There are two underlying approaches here - `nix-locate` or `nix search`. I'm using `nix-locate`.
+**Note:** There are two underlying approaches here - `nix-locate` or `nix search`. I'm using `nix-locate`.
 
 {% endnote %}
 
 Critically, you're free to try the latest and greatest on Linux, without any worry of breaking your machine.
 
 It's not all sunshine and rainbows, though: Nix's approach can create security maintenance challenges{% fnref 1 %}. These problems are more challenging given the size of `nixpkgs`.
-
-{% note "short" %}
-
-**Edit 25/7/25:** clarified wording.
-
-{% endnote %}
 
 ### 6. Learning, and Network Effects
 There's a simple way to frame this: the people that deal with complexity for fun are unusually clever. It's very easy to learn from them.
@@ -223,20 +220,24 @@ There's no arguing about the complexity, though. So maybe there's room to improv
 
 I'll tell you a secret though: wherever things go next, Nix users will be happy. They've already climbed the mountain. They're now quietly enjoying a better desktop experience, searching for the next clever idea. They've got a good view.
 
+
+{% note "short" %}
+
+**Edit 25/7/25:** clarified security reference in section 5.
+
+**Edit 27/7/25:** extended section 3; improved security footnote.
+
+{% endnote %}
+
+
 {% footnotes %}
-
 {% footnote 1, "Security Challenges" %}
+Nix's security challenges stem from **vendored dependencies** - when software packages include their own copies of libraries rather than relying on system-wide versions. While this practice improves reproducibility and prevents supply chain attacks, it creates a patching problem: when a vulnerability is discovered, every package that vendors the affected code needs individual updates.
 
-One problem with Nix's approach to packaging comes from **vendored dependencies** - the practice of shipping your own copy of the source code for a dependency, rather than relying on external package registries. This is a common approach for security and reliability, used by companies to prevent supply chain attacks and guarantee reproducible builds.
+Nix handles dynamically linked dependencies well - packagers override these during packaging, so they're automatically updated when the underlying library is patched. The challenge lies with **statically linked** vendored code. For example, [Firefox bundles its own copy of SQLite](https://github.com/mozilla-firefox/firefox/blob/main/third_party/sqlite3/src/sqlite3.c), so an SQLite vulnerability requires both an SQLite update *and* a new Firefox release.
 
-The problem is, when security vulnerabilities are discovered in vendored code, they need to be patched in multiple places: this means updating the original dependency, as well as every package that copied it.
+With over 120,000 packages maintained by volunteers, tracking these dependencies manually is overwhelming. There's now a [work-in-progress security tracker](https://tracker.security.nixos.org/suggestions/) to automate this, which should help significantly once complete.
 
-This creates two challenges for Nix: maintainers need to ship the core dependency patch quickly, but they also need to identify and fix **every version** of every package that vendored the vulnerable code. There's no automated solution for tracking these vendored dependencies, making this a manual and error-prone process.
-
-Add in the volunteer-driven nature of the Nix community, and the sheer size of the repository, and you have a very hard problem.
-
-If you're looking for distributions with solutions to this problem, consider RHEL or Ubuntu. Otherwise, bump your flake locks regularly, to reduce the risk of being on vulnerable versions.
-
+**Bottom line:** Nix users should regularly update their flake versions to minimize exposure. For anyone seeking stronger security promises, traditional enterprise distributions like RHEL or Ubuntu may be better choices. They have simpler dependency models and corporate backing, though at the cost of stable access to more current software.
 {% endfootnote 1 %}
-
 {% endfootnotes %}
