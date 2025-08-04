@@ -9,7 +9,7 @@ export default async (eleventyConfig) => {
   // setup syntax highlighting with Shiki
   const highlighter = await createHighlighter({
     themes: ["catppuccin-mocha", "catppuccin-latte"],
-    langs: ["nix", "bash", "python", "rust", "javascript", "typescript", "html", "css", "json", "markdown"],
+    langs: ["nix", "bash", "terraform",  "python", "rust", "javascript", "typescript", "html", "css", "json", "markdown"],
   });
 
   const md = new markdownIt({
