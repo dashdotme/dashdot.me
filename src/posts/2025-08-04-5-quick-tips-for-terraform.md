@@ -99,4 +99,6 @@ In part, this is where Terraform shines - it represents simple relationships wel
 
 If you're fighting it, it's often worth taking a step back and asking if your problem can be solved elsewhere.
 
-**Note**: that doesn't mean copy and pasting everything everywhere... that becomes it's own headache quickly.
+{% note %}
+**Note:** that doesn't mean copy and pasting everything everywhere... that becomes it's own headache quickly.
+{% endnote %}
