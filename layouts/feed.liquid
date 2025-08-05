@@ -16,7 +16,7 @@
     <link href="https://dashdot.me{{ post.url }}"/>
     <updated>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
     <id>https://dashdot.me{{ post.url }}</id>
-    <content type="html"><![CDATA[{{ post.templateContent }}]]></content>
+    <content type="html">{{ post.templateContent | xml_escape }}</content>
   </entry>
   {% endfor %}
 </feed>
