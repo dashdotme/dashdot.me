@@ -20,6 +20,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/style.css">
+  <link rel="preload" as="image" href="/profile_pic.webp">
 </head>
 <body>
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
@@ -29,8 +30,10 @@
 
   <div class="bio">
     <div class="bio-main">
-      <img src="/profile_pic.webp" alt="Dashdotme">
-      <span class="bio-name">Dashiell Vallance</span>
+        <div class="bio-avatar">
+            <img src="/avatar.webp" alt="Dashdotme" loading="eager">
+        </div>
+        <span class="bio-name">Dashiell Vallance</span>
     </div>
     <div class="contact-links">
       <a href="/feed.atom" aria-label="RSS Feed">
