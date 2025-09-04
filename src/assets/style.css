@@ -200,6 +200,8 @@ a:hover {
   border-radius: var(--radius-full);
   object-fit: cover;
   flex-shrink: 0;
+  color: initial;
+  transition: none;
 }
 
 .bio-name {
