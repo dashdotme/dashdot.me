@@ -24,11 +24,6 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-    <span class="theme-icon-sun">{% include "sun.svg" %}</span>
-    <span class="theme-icon-moon">{% include "moon.svg" %}</span>
-  </button>
-
   <div class="bio">
     <div class="bio-main">
       <img src="/profile_pic.webp" alt="Dashdotme">
@@ -46,6 +41,10 @@
       </a>
       <a href="https://www.linkedin.com/in/dashvallance/" aria-label="LinkedIn">
         {% include "linkedin.svg" %}
+      </a>
+      <a class="theme-toggle" onclick="toggleTheme()" role="button" aria-label="Toggle dark mode">
+        <span class="theme-icon-sun">{% include "sun.svg" %}</span>
+        <span class="theme-icon-moon">{% include "moon.svg" %}</span>
       </a>
     </div>
   </div>

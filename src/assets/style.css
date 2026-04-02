@@ -82,18 +82,13 @@
   display: none;
 }
 .theme-toggle .theme-icon-moon {
-  display: block;
+  display: contents;
 }
 [data-color-scheme="dark"] .theme-toggle .theme-icon-sun {
-  display: block;
+  display: contents;
 }
 [data-color-scheme="dark"] .theme-toggle .theme-icon-moon {
   display: none;
-}
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-  display: block;
 }
 
 /* ==========================================
@@ -211,6 +206,7 @@ a:hover {
 
 .contact-links {
   display: flex;
+  align-items: center;
   gap: var(--space-md);
 }
 
@@ -319,25 +315,7 @@ a:hover {
 }
 
 .theme-toggle {
-  position: absolute;
-  top: var(--space-lg);
-  right: var(--space-lg);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  width: 48px;
-  height: 48px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color var(--transition-fast);
-  z-index: 1000;
-  box-shadow: 0 2px 8px var(--color-shadow);
-}
-
-.theme-toggle:hover {
-  background: var(--color-border);
 }
 
 figure {
@@ -562,18 +540,6 @@ th {
 
   .post-title {
     font-size: 1.3rem;
-  }
-
-  .theme-toggle {
-    top: var(--space-sm);
-    right: var(--space-sm);
-    width: 44px;
-    height: 44px;
-  }
-
-  .theme-toggle svg {
-    width: 18px;
-    height: 18px;
   }
 
   .post-tile {
