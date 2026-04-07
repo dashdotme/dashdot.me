@@ -28,25 +28,29 @@ When I met my partner, in my first proper 'tech job', I described myself as a co
 
 Finally doing work I liked, meeting like-minded people. I was on the right path.
 
-Together, my partner and I grew. We explored and savoured the beautiful country we came from on weekends. We reflected on its change and reluctantly jumped the ditch. The time since has demanded more of us both than we expected.
+Together, my partner and I grew. We explored and savoured the beautiful country we came from on weekends. On long quiet walks, we reflected on how things were changing. As she graduated, we reluctantly jumped the ditch.
 
-When we're liked, people worry how they might keep us; when things are hard, people suggest we go home. Both sides remind us - we're guests, we're other. Our support networks are far away.
+The time since has demanded more of us both than we expected. When we're liked, people worry how they might keep us. When things are hard, people suggest we go home. Both sides remind us - we're guests, we're other. Our roots and our moral norms are far away.
 
-My partner is the strong one - she's learned to find people. Wherever we go, she draws people in. She knows how to be vulnerable, honest but warm.
+My partner is the strong one - she's learned to find people. Wherever we go, she draws people in. She knows how to be vulnerable. She's always honest but warm.
 
-I'm learning, but I'm different. I know how to listen and notice, to adapt or show competence. My vulnerability is cautious. Hers is brave.
+I'm learning, but I'm different. I know how to listen and notice. When I'm trying, I adapt myself; when I'm not, I show competence instead. My vulnerability is cautious. Hers is brave.
 
 I find my bravery in the flow state. There, I'm not working for praise or a performance review. My mind is consumed with the task. I want to improve the process. I want to help my teammate. I want to deliver on our promises.
 
-That's where you'll find the best version of me - on the job, mid-task, with my mind full. In the work, I am most myself. My security is earned. That's how I know I'll adapt, no matter the world ahead. Because I'll explore.
+That's where you'll find the best version of me - on the job, mid-task, with my mind full. In that moment, I am most myself. That's where my security is earned.
+
+That's how I know I'll adapt, no matter the world ahead. Because I'm in the right lane. Because I'll explore.
 
 And when I go home, there's a puppy waiting. She used to be a fearful wee thing, but now she's bold and resilient. Every other dog is her best friend. People are buddies to check in with. The hard part is steering her away.
 
 I taught her that, with my partner. In the middle of hard times. Just like I taught her every trick she's learned - even the ones which aren't tricks, which she does just to be naughty.
 
-Sometimes she does everything I ask. Sometimes she does the thing I want before I've asked for it, even when the thing is hard. That's her flow state.
+Sometimes she does everything I ask. Sometimes she deliberately ignores me, because she's clever and wilful. And sometimes she does the thing I want before I've said a word, even when the thing is hard. That's her flow state.
 
-And now, she loves to explore too.
+Like me, she's found herself in the work. And now, she carries it with her.
+
+I'm proud. She's learning to explore too.
 
 <figure style="flex: 1; margin: 0;">
   <img src="/2026-04-06-flow-state/florence.webp" alt="Puppy on the beach" style="max-width: 240px; width: 100%; height: auto;">
