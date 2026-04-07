@@ -5,7 +5,7 @@ layout: base.liquid
   {{ content }}
 </div>
 
-{% assign sorted_posts = collections.posts | reverse %}
+{% assign sorted_posts = collections.publicPosts | reverse %}
 {% for post in sorted_posts %}
   <a href="{{ post.url }}" class="post-tile">
     <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>

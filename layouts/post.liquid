@@ -10,25 +10,73 @@ layout: base.liquid
   <h1>{{ title }}</h1>
   <div class="date">{{ page.date | date: "%B %d, %Y" }}</div>
 
-  {% if series %}
-    {% assign seriesPosts = collections | getSeriesPosts: series, page.url %}
-    {% if seriesPosts.size > 1 %}
-      <div class="series-index">
-        <h3>Series: {{ series }}</h3>
-        <ol class="series-list">
-          {% for post in seriesPosts %}
-          <li class="series-item{% if post.url == page.url %} current{% endif %}">
-            {% if post.url == page.url %}
-              <span class="current-post">{{ post.data.title }}</span>
-            {% else %}
-              <a href="{{ post.url }}">{{ post.data.title }}</a>
-            {% endif %}
-          </li>
-          {% endfor %}
-        </ol>
+  {% if draft %}
+    <div class="draft-gate" id="draft-gate">
+      <p>This post is a draft. Enter the password to continue reading.</p>
+      <div class="draft-form">
+        <input type="password" id="draft-password" placeholder="Password" autofocus>
+        <button id="draft-unlock">Unlock</button>
       </div>
-    {% endif %}
-  {% endif %}
+      <p class="draft-error" id="draft-error">Incorrect password.</p>
+    </div>
+    <div id="draft-content"></div>
+    <script>
+    (function() {
+      var enc = {{ content | encrypt: password }};
+      var gate = document.getElementById('draft-gate');
+      var out = document.getElementById('draft-content');
+      var input = document.getElementById('draft-password');
+      var error = document.getElementById('draft-error');
+      var btn = document.getElementById('draft-unlock');
+      var key = 'draft-pw-' + location.pathname;
 
-  {{ content }}
+      function b64(s) { return Uint8Array.from(atob(s), function(c) { return c.charCodeAt(0); }); }
+
+      async function unlock(pw) {
+        try {
+          var s = b64(enc.s), i = b64(enc.i), t = b64(enc.t), d = b64(enc.d);
+          var ct = new Uint8Array(d.length + t.length);
+          ct.set(d); ct.set(t, d.length);
+          var km = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+          var dk = await crypto.subtle.deriveKey({name:'PBKDF2',salt:s,iterations:100000,hash:'SHA-256'}, km, {name:'AES-GCM',length:256}, false, ['decrypt']);
+          var dec = await crypto.subtle.decrypt({name:'AES-GCM',iv:i}, dk, ct);
+          out.innerHTML = new TextDecoder().decode(dec);
+          out.style.display = 'block';
+          gate.style.display = 'none';
+          sessionStorage.setItem(key, pw);
+        } catch(e) {
+          error.style.display = 'block';
+          input.select();
+        }
+      }
+
+      input.addEventListener('keydown', function(e) { if (e.key === 'Enter') unlock(input.value); });
+      btn.addEventListener('click', function() { unlock(input.value); });
+      var saved = sessionStorage.getItem(key);
+      if (saved) unlock(saved);
+    })();
+    </script>
+  {% else %}
+    {% if series %}
+      {% assign seriesPosts = collections | getSeriesPosts: series, page.url %}
+      {% if seriesPosts.size > 1 %}
+        <div class="series-index">
+          <h3>Series: {{ series }}</h3>
+          <ol class="series-list">
+            {% for post in seriesPosts %}
+            <li class="series-item{% if post.url == page.url %} current{% endif %}">
+              {% if post.url == page.url %}
+                <span class="current-post">{{ post.data.title }}</span>
+              {% else %}
+                <a href="{{ post.url }}">{{ post.data.title }}</a>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ol>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {{ content }}
+  {% endif %}
 </div>

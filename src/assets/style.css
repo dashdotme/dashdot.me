@@ -444,6 +444,58 @@ sup a:hover {
 }
 
 /* ==========================================
+   DRAFT GATE
+   ========================================== */
+.draft-gate {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.draft-gate p {
+  color: var(--color-text-subtle);
+}
+
+.draft-form {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.draft-form input {
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: 1rem;
+}
+
+.draft-form button {
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  transition: background var(--transition-fast);
+}
+
+.draft-form button:hover {
+  background: var(--color-border);
+}
+
+.draft-error {
+  display: none;
+  margin-top: var(--space-sm);
+  font-size: 0.9rem;
+  color: #c44;
+}
+
+/* ==========================================
    FOOTER
    ========================================== */
 .site-footer {

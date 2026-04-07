@@ -1,6 +1,7 @@
 import markdownIt from "markdown-it";
 import { fromHighlighter } from "@shikijs/markdown-it";
 import { createHighlighter } from "shiki";
+import { randomBytes, pbkdf2Sync, createCipheriv } from "node:crypto";
 
 export default async (eleventyConfig) => {
   // treat src/assets as root for management of favicons etc.
@@ -27,9 +28,30 @@ export default async (eleventyConfig) => {
 
   eleventyConfig.setLibrary("md", md);
 
-  // index
+  // collections
   eleventyConfig.addCollection("posts", (collectionApi) => {
     return collectionApi.getFilteredByGlob("src/posts/*.md");
+  });
+
+  eleventyConfig.addCollection("publicPosts", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/posts/*.md")
+      .filter(post => !post.data.draft);
+  });
+
+  // encrypt content for draft posts
+  eleventyConfig.addFilter("encrypt", (content, password) => {
+    if (!password) throw new Error("Draft posts require a 'password' field in frontmatter");
+    const salt = randomBytes(16);
+    const key = pbkdf2Sync(password, salt, 100000, 32, "sha256");
+    const iv = randomBytes(12);
+    const cipher = createCipheriv("aes-256-gcm", key, iv);
+    const encrypted = Buffer.concat([cipher.update(content, "utf8"), cipher.final()]);
+    return JSON.stringify({
+      s: salt.toString("base64"),
+      i: iv.toString("base64"),
+      t: cipher.getAuthTag().toString("base64"),
+      d: encrypted.toString("base64")
+    });
   });
 
   eleventyConfig.addFilter("removeHeadings", (content) => {
