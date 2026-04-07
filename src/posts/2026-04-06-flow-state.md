@@ -1,6 +1,6 @@
 ---
 title: "Flow State"
-date: 2026-04-03
+date: 2026-04-06
 description: "A tech screening reminded me I love what I do. On flow, endurance, and finding security in an uncertain world."
 tags:
   - personal
