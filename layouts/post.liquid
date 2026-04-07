@@ -22,7 +22,7 @@ layout: base.liquid
     <div id="draft-content"></div>
     <script>
     (function() {
-      var enc = {{ content | encrypt: password }};
+      var enc = {{ content | encrypt }};
       var gate = document.getElementById('draft-gate');
       var out = document.getElementById('draft-content');
       var input = document.getElementById('draft-password');

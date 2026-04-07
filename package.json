@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
-    "serve": "eleventy --serve"
+    "build": "node scripts/unseal.js && eleventy && node scripts/seal.js",
+    "serve": "node scripts/unseal.js && eleventy --serve",
+    "seal": "node scripts/seal.js",
+    "unseal": "node scripts/unseal.js"
   },
   "keywords": [],
   "author": "",

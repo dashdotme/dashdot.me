@@ -39,8 +39,9 @@ export default async (eleventyConfig) => {
   });
 
   // encrypt content for draft posts
-  eleventyConfig.addFilter("encrypt", (content, password) => {
-    if (!password) throw new Error("Draft posts require a 'password' field in frontmatter");
+  eleventyConfig.addFilter("encrypt", (content) => {
+    const password = process.env.DRAFT_KEY;
+    if (!password) return "";
     const salt = randomBytes(16);
     const key = pbkdf2Sync(password, salt, 100000, 32, "sha256");
     const iv = randomBytes(12);
