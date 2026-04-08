@@ -8,11 +8,12 @@ layout: post.liquid
 permalink: /flow-state/
 ---
 
-I'm writing this fresh from a tech screening. That's been my first 'infrastructure' work in a few weeks, and it's reminded me I love what I do.
 
-Otherwise, they've been brutal weeks. All my time and energy has gone to things I'd normally never choose.
+I'm writing this fresh from a technical screening. My first 'infrastructure work' in a few weeks. It's reminded me I love what I do.
 
-But one technical task has sent me back to my flow state. With that comes perspective. A realization that I'm deeply fortunate. That I'm anchored by a calling, by a loving partner, by a puppy and by old friendships which know me well.
+Otherwise, life has been brutal. I won't dwell, but my time and energy has gone to things I'd never choose.
+
+One technical task has sent me back to my flow state. With that comes perspective. A realization that I’m deeply fortunate. That I’m anchored by a calling, by a loving partner, by a puppy and by old friendships which know me well.
 
 I spent many years doing work I wasn't passionate about. Work which didn't leave me with pride or self-esteem. I juggled this work to make the transition into tech, renovating homes with a full-time course-load while tutoring on the side.
 
