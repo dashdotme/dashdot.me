@@ -12,7 +12,7 @@ permalink: /flow-state/
 
 I'm writing this fresh from a technical screening. My first 'infrastructure work' in a few weeks. It's reminded me I love what I do.
 
-Otherwise, life has been brutal. I won't dwell, but my time and energy has gone to things I'd never choose.
+Otherwise, life has been brutal. I won't dwell, but my time and energy have gone to things I'd never choose.
 
 But one technical task has sent me back to my flow state. With that comes perspective. A realization that I’m deeply fortunate. That I’m anchored by a calling, by a loving partner, by a puppy and by old friendships which know me well.
 
@@ -34,7 +34,7 @@ Together, my partner and I grew. We explored and savoured the beautiful country 
 
 The time since has demanded more of us both than we expected. When we're liked, people worry how they might keep us. When things are hard, people suggest we go home. Both sides remind us - we're guests, we're other. Our roots and our moral norms are far away.
 
-My partner is the strong one - she's learned to find people. Wherever we go, she draws people in. She knows how to be vulnerable. She's always honest but warm.
+My partner is the strong one - she's learned to find people. Wherever we go, she draws them in. She knows how to be vulnerable. She's always honest and always warm.
 
 I'm learning, but I'm different. I know how to listen and notice. When I'm trying, I adapt myself; when I'm not, I show competence instead. My vulnerability is cautious. Hers is brave.
 
