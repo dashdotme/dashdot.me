@@ -2,6 +2,7 @@
 title: "Flow State"
 date: 2026-04-07
 description: "A tech screening reminded me I love what I do. On flow, endurance, and finding security in an uncertain world."
+ogImage: /2026-04-06-flow-state/florence-og.webp
 tags:
   - personal
 layout: post.liquid
