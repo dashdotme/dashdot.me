@@ -14,7 +14,7 @@ I'm writing this fresh from a technical screening. My first 'infrastructure work
 
 Otherwise, life has been brutal. I won't dwell, but my time and energy has gone to things I'd never choose.
 
-One technical task has sent me back to my flow state. With that comes perspective. A realization that I’m deeply fortunate. That I’m anchored by a calling, by a loving partner, by a puppy and by old friendships which know me well.
+But one technical task has sent me back to my flow state. With that comes perspective. A realization that I’m deeply fortunate. That I’m anchored by a calling, by a loving partner, by a puppy and by old friendships which know me well.
 
 I spent many years doing work I wasn't passionate about. Work which didn't leave me with pride or self-esteem. I juggled this work to make the transition into tech, renovating homes with a full-time course-load while tutoring on the side.
 
