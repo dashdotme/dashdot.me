@@ -1,4 +1,5 @@
 export default {
+  ogType: "article",
   eleventyComputed: {
     permalink: (data) => {
       if (data.draft && !process.env.DRAFT_KEY) return false;

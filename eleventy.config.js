@@ -59,6 +59,9 @@ export default async (eleventyConfig) => {
     return content.replace(/<h[1-6][^>]*>.*?<\/h[1-6]>/gi, '');
   });
 
+  // safely emit a value as a JSON string (for JSON-LD structured data)
+  eleventyConfig.addFilter("jsonString", (value) => JSON.stringify(value ?? ""));
+
   // notes
   eleventyConfig.addPairedLiquidShortcode("note", (content, type) => {
     const className = type ? `note ${type}` : 'note';
