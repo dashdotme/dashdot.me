@@ -3,21 +3,20 @@ layout: base.liquid
 ---
 <div class="blog-summary">
   {{ content }}
+  <nav class="section-nav" aria-label="Blog sections">
+    <a href="#technical">Technical</a>
+    <a href="#personal">Personal</a>
+  </nav>
 </div>
 
-{% assign sorted_posts = collections.publicPosts | reverse %}
-{% for post in sorted_posts %}
-  <a href="{{ post.url }}" class="post-tile">
-    <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
-    <h2 class="post-title">{{ post.data.title }}</h2>
-    <div class="post-excerpt">
-      {% assign words = post.templateContent | removeHeadings | strip_html | split: " " %}
-      {% if words.size > 50 %}
-        {{ words | slice: 0, 50 | join: " " }}...
-      {% else %}
-        {{ words | join: " " }}
-      {% endif %}
-    </div>
-    <div class="read-more">Read more →</div>
-  </a>
-{% endfor %}
+<section id="technical" class="post-section">
+  <h2 class="section-heading">Technical</h2>
+  <p class="section-blurb">Nix, infrastructure, and the tools that make tech simpler.</p>
+  {% render "post-tiles.liquid", posts: collections.technicalPosts %}
+</section>
+
+<section id="personal" class="post-section">
+  <h2 class="section-heading">Personal</h2>
+  <p class="section-blurb">Notes on life outside the terminal.</p>
+  {% render "post-tiles.liquid", posts: collections.personalPosts %}
+</section>

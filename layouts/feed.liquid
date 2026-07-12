@@ -16,6 +16,7 @@
     <link href="https://dashdot.me{{ post.url }}"/>
     <updated>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
     <id>https://dashdot.me{{ post.url }}</id>
+    {% if post.data.tags contains "personal" %}<category term="personal"/>{% else %}<category term="technical"/>{% endif %}
     <content type="html">{{ post.templateContent | xml_escape }}</content>
   </entry>
   {% endfor %}

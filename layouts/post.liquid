@@ -3,12 +3,21 @@ layout: base.liquid
 ---
 
 <div class="single-post">
+  {% if tags contains "personal" %}
+    {% assign section = "personal" %}
+  {% else %}
+    {% assign section = "technical" %}
+  {% endif %}
+
   <div class="back-link">
-    <a href="/">← Index</a>
+    <a href="/#{{ section }}">← Index</a>
   </div>
 
   <h1>{{ title }}</h1>
-  <div class="date">{{ page.date | date: "%B %d, %Y" }}</div>
+  <div class="post-meta">
+    <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+    <a class="section-label" href="/#{{ section }}">{{ section }}</a>
+  </div>
 
   {% if draft %}
     <div class="draft-gate" id="draft-gate">

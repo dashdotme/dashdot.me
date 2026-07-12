@@ -38,6 +38,19 @@ export default async (eleventyConfig) => {
       .filter(post => !post.data.draft);
   });
 
+  // sections: posts tagged "personal" are personal; everything else defaults to technical
+  const isPersonal = (post) => (post.data.tags || []).includes("personal");
+
+  eleventyConfig.addCollection("technicalPosts", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/posts/*.md")
+      .filter(post => !post.data.draft && !isPersonal(post));
+  });
+
+  eleventyConfig.addCollection("personalPosts", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/posts/*.md")
+      .filter(post => !post.data.draft && isPersonal(post));
+  });
+
   // encrypt content for draft posts
   eleventyConfig.addFilter("encrypt", (content) => {
     const password = process.env.DRAFT_KEY;
