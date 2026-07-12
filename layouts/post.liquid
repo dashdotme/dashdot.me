@@ -1,14 +1,22 @@
 ---
 layout: base.liquid
 ---
-
-<div class="single-post">
-  <div class="back-link">
-    <a href="/">← Index</a>
+<article class="article article--{{ section }}">
+  <div class="article-topbar">
+    <a href="/" class="back-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+      All posts
+    </a>
+    <div class="article-author">
+      <div class="article-author-avatar" role="img" aria-label="Dashiell Vallance"></div>
+      <span class="article-author-name">Dashiell Vallance</span>
+      {% include "theme-toggle.liquid" %}
+    </div>
   </div>
 
-  <h1>{{ title }}</h1>
-  <div class="date">{{ page.date | date: "%B %d, %Y" }}</div>
+  <p class="eyebrow eyebrow--{% if section == 'personal' %}coral{% else %}gold{% endif %}">{{ section | capitalize }} · {{ page.date | date: "%B %d, %Y" }}</p>
+  <h1 class="article-title">{{ title }}</h1>
+  {% if description %}<p class="article-lede">{{ description }}</p>{% endif %}
 
   {% if draft %}
     <div class="draft-gate" id="draft-gate">
@@ -19,7 +27,7 @@ layout: base.liquid
       </div>
       <p class="draft-error" id="draft-error">Incorrect password.</p>
     </div>
-    <div id="draft-content"></div>
+    <div id="draft-content" class="prose"></div>
     <script>
     (function() {
       var enc = {{ content | encrypt }};
@@ -61,7 +69,10 @@ layout: base.liquid
       {% assign seriesPosts = collections | getSeriesPosts: series, page.url %}
       {% if seriesPosts.size > 1 %}
         <div class="series-index">
-          <h3>Series: {{ series }}</h3>
+          <div class="series-head">
+            <svg class="series-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.5c.5 3.4 1.6 4.5 5 5-3.4.5-4.5 1.6-5 5-.5-3.4-1.6-4.5-5-5 3.4-.5 4.5-1.6 5-5Z"></path><path d="M18.5 13c.25 1.7.8 2.25 2.5 2.5-1.7.25-2.25.8-2.5 2.5-.25-1.7-.8-2.25-2.5-2.5 1.7-.25 2.25-.8 2.5-2.5Z"></path></svg>
+            <span class="series-name">{{ series }}</span>
+          </div>
           <ol class="series-list">
             {% for post in seriesPosts %}
             <li class="series-item{% if post.url == page.url %} current{% endif %}">
@@ -77,6 +88,13 @@ layout: base.liquid
       {% endif %}
     {% endif %}
 
-    {{ content }}
+    <div class="prose">
+      {{ content }}
+    </div>
   {% endif %}
-</div>
+
+  <footer class="article-footer">
+    <p>© <span data-year>2026</span> Dashiell Vallance. All writing is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. Please share it freely.</p>
+    <p>Site powered by <a href="https://www.11ty.dev/">11ty</a>. <a href="https://github.com/dashdotme/dashdotme">Source code</a> available under MIT.</p>
+  </footer>
+</article>

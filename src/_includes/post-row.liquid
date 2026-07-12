@@ -1,0 +1,11 @@
+<a href="{{ post.url }}" class="post-row" data-section="{{ post.data.section }}">
+  <span class="post-row-dot post-row-dot--{{ post.data.section }}"></span>
+  <span class="post-row-date">{{ post.date | date: "%b %d" }}</span>
+  <span class="post-row-title">{{ post.data.title }}</span>
+  {% if post.data.section == "personal" %}
+    <span class="rowtag rowtag--coral">Personal</span>
+  {% elsif post.data.series %}
+    <span class="rowtag rowtag--gold">{{ post.data.series }} · {{ post.data.seriesRoman }}</span>
+  {% endif %}
+  <svg class="post-row-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+</a>

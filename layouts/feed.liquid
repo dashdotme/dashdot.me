@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Dashiell Vallance</title>
-  <link href="https://dashdot.me/feed.atom" rel="self"/>
+  {% assign feedCollection = feedCollection | default: "publicPosts" %}
+  {% assign posts = collections[feedCollection] %}
+  <title>Dashiell Vallance{% if feedTitle %} — {{ feedTitle }}{% endif %}</title>
+  <link href="https://dashdot.me{{ page.url }}" rel="self"/>
   <link href="https://dashdot.me"/>
-  <updated>{{ collections.publicPosts.last.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
-  <id>https://dashdot.me/</id>
+  <updated>{{ posts.last.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+  <id>https://dashdot.me{{ page.url }}</id>
   <author>
     <name>Dashiell Vallance</name>
     <email>dash@dashdot.me</email>
   </author>
 
-  {% for post in collections.publicPosts reversed limit: 10 %}
+  {% for post in posts reversed limit: 10 %}
   <entry>
     <title>{{ post.data.title | xml_escape }}</title>
     <link href="https://dashdot.me{{ post.url }}"/>
     <updated>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
     <id>https://dashdot.me{{ post.url }}</id>
+    {% if post.data.tags contains "personal" %}<category term="personal"/>{% else %}<category term="technical"/>{% endif %}
     <content type="html">{{ post.templateContent | xml_escape }}</content>
   </entry>
   {% endfor %}

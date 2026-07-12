@@ -38,6 +38,47 @@ export default async (eleventyConfig) => {
       .filter(post => !post.data.draft);
   });
 
+  // sections: posts tagged "personal" are personal; everything else defaults to technical
+  const isPersonal = (post) => (post.data.tags || []).includes("personal");
+
+  eleventyConfig.addCollection("technicalPosts", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/posts/*.md")
+      .filter(post => !post.data.draft && !isPersonal(post));
+  });
+
+  eleventyConfig.addCollection("personalPosts", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/posts/*.md")
+      .filter(post => !post.data.draft && isPersonal(post));
+  });
+
+  // distinct series, each with its parts in reading order
+  eleventyConfig.addCollection("seriesList", (collectionApi) => {
+    const groups = {};
+    collectionApi.getFilteredByGlob("src/posts/*.md")
+      .filter(post => !post.data.draft && post.data.series)
+      .forEach(post => {
+        (groups[post.data.series] ||= []).push(post);
+      });
+    return Object.entries(groups).map(([name, posts]) => ({
+      name,
+      posts: posts.sort((a, b) => new Date(a.date) - new Date(b.date)),
+    }));
+  });
+
+  // group posts (newest first) by calendar year for the index list
+  eleventyConfig.addFilter("groupByYear", (posts) => {
+    const groups = {};
+    [...posts]
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .forEach(post => {
+        const year = new Date(post.date).getUTCFullYear();
+        (groups[year] ||= []).push(post);
+      });
+    return Object.entries(groups)
+      .sort((a, b) => b[0] - a[0])
+      .map(([year, posts]) => ({ year, posts }));
+  });
+
   // encrypt content for draft posts
   eleventyConfig.addFilter("encrypt", (content) => {
     const password = process.env.DRAFT_KEY;

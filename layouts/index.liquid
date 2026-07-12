@@ -1,23 +1,81 @@
 ---
 layout: base.liquid
 ---
-<div class="blog-summary">
-  {{ content }}
-</div>
+{% assign latest = collections.publicPosts | reverse | first %}
+{% assign yearGroups = collections.publicPosts | groupByYear %}
 
-{% assign sorted_posts = collections.publicPosts | reverse %}
-{% for post in sorted_posts %}
-  <a href="{{ post.url }}" class="post-tile">
-    <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
-    <h2 class="post-title">{{ post.data.title }}</h2>
-    <div class="post-excerpt">
-      {% assign words = post.templateContent | removeHeadings | strip_html | split: " " %}
-      {% if words.size > 50 %}
-        {{ words | slice: 0, 50 | join: " " }}...
-      {% else %}
-        {{ words | join: " " }}
-      {% endif %}
+<div class="home">
+  <aside class="identity">
+    <div class="identity-avatar" role="img" aria-label="Dashiell Vallance"></div>
+    <div class="identity-name">Dashiell Vallance</div>
+    <p class="identity-bio">Hi, I'm Dash. I write about technology, development and the tools that make tech simpler — plus the occasional <a href="#personal" class="link-coral" data-filter="personal">personal note</a>.</p>
+    <div class="identity-links">
+      {% include "socials.liquid" %}
+      {% include "theme-toggle.liquid" %}
     </div>
-    <div class="read-more">Read more →</div>
-  </a>
-{% endfor %}
+
+    <div class="segmented" role="tablist" aria-label="Filter posts by section">
+      <button class="segmented-option is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+      <button class="segmented-option" role="tab" aria-selected="false" data-filter="technical">Technical</button>
+      <button class="segmented-option" role="tab" aria-selected="false" data-filter="personal">Personal</button>
+    </div>
+
+    <div class="identity-footer">
+      <p>© <span data-year>2026</span> Dashiell Vallance. All writing licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. Site powered by <a href="https://www.11ty.dev/">11ty</a>; <a href="https://github.com/dashdotme/dashdotme">source code</a> under MIT.</p>
+    </div>
+  </aside>
+
+  <main class="shelf">
+    {% if latest %}
+    <section class="block" data-section="{{ latest.data.section }}">
+      <p class="eyebrow eyebrow--gold">Latest</p>
+      <article class="feature-card feature-card--{{ latest.data.section }}">
+        <div class="feature-meta">
+          <span class="badge badge--{% if latest.data.section == 'personal' %}coral{% else %}gold{% endif %}">{{ latest.data.section | capitalize }}</span>
+          <span class="eyebrow">{{ latest.date | date: "%B %d, %Y" }}</span>
+        </div>
+        <h2 class="feature-title">{{ latest.data.title }}</h2>
+        <p class="feature-desc">{{ latest.data.description }}</p>
+        <a href="{{ latest.url }}" class="btn btn--{% if latest.data.section == 'personal' %}coral{% else %}gold{% endif %}">Continue reading</a>
+      </article>
+    </section>
+    {% endif %}
+
+    {% if collections.seriesList.size > 0 %}
+    <section class="block" data-section="technical">
+      <p class="eyebrow">Series</p>
+      {% for s in collections.seriesList %}
+      <div class="series-card">
+        <div class="series-head">
+          <svg class="series-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.5c.5 3.4 1.6 4.5 5 5-3.4.5-4.5 1.6-5 5-.5-3.4-1.6-4.5-5-5 3.4-.5 4.5-1.6 5-5Z"></path><path d="M18.5 13c.25 1.7.8 2.25 2.5 2.5-1.7.25-2.25.8-2.5 2.5-.25-1.7-.8-2.25-2.5-2.5 1.7-.25 2.25-.8 2.5-2.5Z"></path></svg>
+          <span class="series-name">{{ s.name }}</span>
+          <span class="badge badge--muted">{{ s.posts.size }} part{% if s.posts.size != 1 %}s{% endif %}</span>
+        </div>
+        {% assign blurb = seriesInfo[s.name] %}
+        {% if blurb %}<p class="series-blurb">{{ blurb }}</p>{% endif %}
+        {% for post in s.posts %}
+        <a href="{{ post.url }}" class="series-part">
+          <span class="series-part-num">{{ post.data.seriesRoman }}</span>
+          <span class="series-part-title">{{ post.data.title }}</span>
+          <span class="series-part-date">{{ post.date | date: "%b %Y" }}</span>
+          <svg class="post-row-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <section class="block">
+      <p class="eyebrow">All posts</p>
+      {% for group in yearGroups %}
+      <div class="year-group">
+        <div class="year-divider"><span class="year-label">{{ group.year }}</span><span class="year-rule"></span></div>
+        {% for post in group.posts %}
+          {% render "post-row.liquid", post: post %}
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </section>
+  </main>
+</div>

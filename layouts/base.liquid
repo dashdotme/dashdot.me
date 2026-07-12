@@ -32,11 +32,16 @@
   <meta name="twitter:title" content="{{ title }}">
   {% if draft %}<meta name="robots" content="noindex, nofollow">{% endif %}
   <link rel="alternate" type="application/atom+xml" title="RSS Feed" href="/feed.atom">
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed — Technical" href="/feed/technical.atom">
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed — Personal" href="/feed/personal.atom">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800;900&display=swap">
   <link rel="stylesheet" href="/style.css">
   {% if ogType == "article" %}
   <script type="application/ld+json">
@@ -76,39 +81,7 @@
   {% endif %}
 </head>
 <body>
-  <div class="bio">
-    <div class="bio-main">
-      <div class="bio-avatar" role="img" aria-label="Dashiell Vallance"></div>
-      <span class="bio-name">Dashiell Vallance</span>
-    </div>
-    <div class="contact-links">
-      <a href="/feed.atom" aria-label="RSS Feed">
-        {% include "rss.svg" %}
-      </a>
-      <a href="mailto:dash@dashdot.me" aria-label="Email">
-        {% include "email.svg" %}
-      </a>
-      <a href="https://github.com/dashdotme" aria-label="GitHub">
-        {% include "github.svg" %}
-      </a>
-      <a href="https://www.linkedin.com/in/dashvallance/" aria-label="LinkedIn">
-        {% include "linkedin.svg" %}
-      </a>
-      <a class="theme-toggle" onclick="toggleTheme()" role="button" aria-label="Toggle dark mode">
-        <span class="theme-icon-sun">{% include "sun.svg" %}</span>
-        <span class="theme-icon-moon">{% include "moon.svg" %}</span>
-      </a>
-    </div>
-  </div>
-
   {{ content }}
-
-  <footer class="site-footer">
-    <p>© <script>document.write(new Date().getFullYear())</script> Dashiell Vallance.</p>
-    <p>All writing is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0.</a> Please share it freely.</p>
-    <p>Site powered by <a href="https://www.11ty.dev/">11ty</a>. <a href="https://github.com/dashdotme/dashdotme">Source code</a> available under MIT.</a></p>
-  </footer>
   <script src="/base.js"></script>
-
  </body>
 </html>
