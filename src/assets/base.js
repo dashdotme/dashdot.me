@@ -7,12 +7,8 @@ function toggleTheme() {
   localStorage.setItem('theme', newTheme);
 }
 
-function initTheme() {
-  const saved = localStorage.getItem('theme');
-  const theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-  document.documentElement.setAttribute('data-color-scheme', theme);
-}
+// The initial theme is applied by an inline <head> script (before first
+// paint); toggleTheme handles changes from here.
 
 // Section filter for the home index. Graceful: with no JS, everything shows.
 function initFilter() {
@@ -62,7 +58,6 @@ function initYear() {
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = year; });
 }
 
-initTheme();
 document.addEventListener('DOMContentLoaded', () => {
   initFilter();
   initYear();
