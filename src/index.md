@@ -1,5 +1,5 @@
 ---
 layout: index.liquid
 title: "Dashiell Vallance"
-description: "Dash Vallance writes about technology, development, and the tools that make tech simpler — Nix, NixOS, Terraform, DevOps and more — plus the occasional personal note."
+description: "Dash Vallance's thoughts on tech, tools, and the lessons he's learned as they relate to life and industry — Nix, NixOS, Terraform, DevOps and more."
 ---
