@@ -36,7 +36,13 @@ I've wrapped the basics in dividers, so you can skip ahead if you know your stuf
 
 {% endnote %}
 
-In a later post, I'll cover installation, as well as *getting started with NixOS*. My goal there is a straightforward, start-to-finish guide for a new user transitioning an existing machine. That should supplement the detailed [official installation guide](https://nixos.org/manual/nixos/stable/#ch-installation), which goes a bit beyond what new users need.
+<del>In a later post, I'll cover installation, as well as *getting started with NixOS*. My goal there is a straightforward, start-to-finish guide for a new user transitioning an existing machine. That should supplement the detailed [official installation guide](https://nixos.org/manual/nixos/stable/#ch-installation), which goes a bit beyond what new users need.</del>
+
+{% note %}
+
+**Editor's note (2026):** I never shipped this - I signed away my freedom for a time, and now large language models do the tutorial work about as well as I could.
+
+{% endnote %}
 
 ---
 
