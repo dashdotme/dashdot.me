@@ -16,7 +16,6 @@ layout: base.liquid
 
   <p class="eyebrow eyebrow--{% if section == 'personal' %}coral{% else %}gold{% endif %}">{{ section | capitalize }} · {{ page.date | date: "%B %d, %Y" }}</p>
   <h1 class="article-title">{{ title }}</h1>
-  {% if description %}<p class="article-lede">{{ description }}</p>{% endif %}
 
   {% if draft %}
     <div class="draft-gate" id="draft-gate">
